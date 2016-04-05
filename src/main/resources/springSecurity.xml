@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<beans:bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<beans:property name="basename" value="portal-nomina-msg" />
+	</beans:bean>
+
+	<http auto-config="true" disable-url-rewriting="true"
+		use-expressions="true">
+		<intercept-url pattern="/login*" access="permitAll" requires-channel="any" />
+		<intercept-url pattern="/logout" access="permitAll" />
+		<intercept-url pattern="/about" access="permitAll" />
+		<intercept-url pattern="/error" access="permitAll" />
+		<intercept-url pattern="/pageNotFound" access="permitAll" />
+		<intercept-url pattern="/sessionTimeout" access="permitAll" />
+		<intercept-url pattern="/resetPassword/*" access="permitAll" requires-channel="any" />
+		<intercept-url pattern="/resources/**" access="permitAll" />
+		<intercept-url pattern="/nomina/admin/getLogoUrl" access="permitAll" />
+		<intercept-url pattern="/nomina/employee/**" access="hasRole('ROLE_USER')" requires-channel="any" />
+		<intercept-url pattern="/nomina/admin/**" access="hasRole('ROLE_ADMIN')" requires-channel="any" />
+		<intercept-url pattern="/nomina/menu*/**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" requires-channel="any" />
+		
+		<port-mappings>
+        <!-- Default ports -->
+            <port-mapping http="80" https="443"/>
+        <!-- Websphere default ports -->
+            <port-mapping http="9080" https="9443"/>
+        <!-- Tomcat default ports -->
+            <port-mapping http="8080" https="8443"/>
+        <!-- Jetty custom ports -->
+            <port-mapping http="7777" https="7443"/>
+        </port-mappings>
+		
+		
+		<form-login login-page="/login2" authentication-failure-url="/loginFailed"
+			default-target-url="/nomina/menu" always-use-default-target="true" />
+		<logout logout-url="/perform_logout" logout-success-url="/logout"
+			delete-cookies="JSESSIONID" />
+		<!-- <session-management invalid-session-url="/sessionTimeout" /> -->
+	</http>
+
+	<beans:bean id="userDetailsService" class="com.magnabyte.nomina.portal.web.service.login.UserDetailsServiceImpl"/>
+
+	<authentication-manager>
+		<authentication-provider user-service-ref="userDetailsService">
+			<password-encoder hash="bcrypt" />
+		</authentication-provider>
+	</authentication-manager>
+</beans:beans>
