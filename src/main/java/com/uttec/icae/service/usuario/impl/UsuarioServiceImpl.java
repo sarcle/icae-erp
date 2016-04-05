@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.uttec.icae.dao.usuario.UsuarioRepository;
 import com.uttec.icae.model.Usuario;
+import com.uttec.icae.service.encoder.PasswordEncoderService;
 import com.uttec.icae.service.usuario.UsuarioService;
 
 @Service("usuarioService")

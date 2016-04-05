@@ -43,7 +43,7 @@
 		<!-- <session-management invalid-session-url="/sessionTimeout" /> -->
 	</http>
 
-	<beans:bean id="userDetailsService" class="com.magnabyte.nomina.portal.web.service.login.UserDetailsServiceImpl"/>
+	<beans:bean id="userDetailsService" class="com.uttec.icae.service.usuario.UserDetailsServiceImpl"/>
 
 	<authentication-manager>
 		<authentication-provider user-service-ref="userDetailsService">
