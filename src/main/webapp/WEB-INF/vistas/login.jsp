@@ -1,3 +1,7 @@
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -9,19 +13,32 @@
 </head>
 <body>
 	<div class="container">
-
+				<c:if test="${error}">
+				<div class="col-md-offset-3 col-md-6">
+					<div class="alert alert-danger alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert"
+							aria-hidden="true">&times;</button>
+						<spring:message code="messages.login.failed" />
+						<br>
+						<br> <strong><spring:message
+								code="messages.login.cause"/>:</strong>
+						<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" default="messages.login.required" />
+					</div>
+				</div>
+			</c:if>
 		<form class="form-signin">
 			<h2 class="form-signin-heading">SISTEMA ICAE-ERP</h2>
 			<label for="inputUser" class="sr-only">Usuario: </label> <input
 				type="text" id="inputUser" class="form-control"
 				placeholder="Usuario" required autofocus> <label
-				for="inputPassword" class="sr-only">Contraseña: </label> <input
+				for="inputPassword" class="sr-only">ContraseÃ±a: </label> <input
 				type="password" id="inputPassword" class="form-control"
-				placeholder="Contraseña" required>
+				placeholder="ContraseÃ±a" required>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
 		</form>
 
 	</div>
+	<script src="<c:url value="/resources/js/login/login.js" />"></script>
 	<!-- /container -->
 </body>
 </html>

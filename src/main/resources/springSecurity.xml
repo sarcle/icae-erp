@@ -6,7 +6,7 @@
 
 	<beans:bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<beans:property name="basename" value="portal-nomina-msg" />
+		<beans:property name="basename" value="uttec-icae-msg" />
 	</beans:bean>
 
 	<http auto-config="true" disable-url-rewriting="true"
@@ -36,8 +36,8 @@
         </port-mappings>
 		
 		
-		<form-login login-page="/login2" authentication-failure-url="/loginFailed"
-			default-target-url="/nomina/menu" always-use-default-target="true" />
+		<form-login login-page="/login" authentication-failure-url="/loginFailed"
+			default-target-url="/menu" always-use-default-target="true" />
 		<logout logout-url="/perform_logout" logout-success-url="/logout"
 			delete-cookies="JSESSIONID" />
 		<!-- <session-management invalid-session-url="/sessionTimeout" /> -->

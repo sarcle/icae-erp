@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<context:component-scan base-package="com.uttec.icae"/>
+	
+<!-- 	<context:property-placeholder location="classpath:/portal-nomina-web.properties" -->
+<!-- 		ignore-unresolvable="false" /> -->
+	
+	<mvc:annotation-driven>
+		<mvc:argument-resolvers>
+	        <bean class="org.springframework.data.web.PageableHandlerMethodArgumentResolver" />
+	    </mvc:argument-resolvers>
+	</mvc:annotation-driven>
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/"/>
+			<mvc:exclude-mapping path="/resources/**"/>
+			<mvc:exclude-mapping path="/login*"/>
+			<mvc:exclude-mapping path="/logout"/>
+			<mvc:exclude-mapping path="/about"/>
+			<mvc:exclude-mapping path="/error"/>
+			<mvc:exclude-mapping path="/pageNotFound"/>
+			<mvc:exclude-mapping path="/sessionTimeout"/>
+			<mvc:exclude-mapping path="/nomina/admin/getLogoUrl"/>
+			<mvc:exclude-mapping path="/resetPassword/*"/>
+			<mvc:exclude-mapping path="/nomina/menu"/>
+			<mvc:exclude-mapping path="/nomina/admin/changePasswordForm"/>
+			<mvc:exclude-mapping path="/nomina/employee/changePasswordForm"/>
+			<mvc:exclude-mapping path="/nomina/admin/changePassword"/>
+			<mvc:exclude-mapping path="/nomina/employee/changePassword"/>
+			<mvc:exclude-mapping path="/nomina/employee/changeEmail"/>
+			<bean class="com.uttec.icae.interceptor.UsuarioInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<mvc:resources location="/resources/" mapping="/resources/**" cache-period="0"/>
+	
+<!-- 	<bean id="multipartResolver" -->
+<!-- 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> -->
+<!-- 	</bean> -->
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="portal-nomina-msg" />
+	</bean>
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/vistas/" />
+		<property name="suffix" value=".jsp" />
+		<property name="order" value="0" />
+	</bean>
+
+	<task:annotation-driven executor="executor" scheduler="scheduler"/>
+	<task:executor id="executor" pool-size="10" />
+	<task:scheduler id="scheduler" pool-size="10" />
+</beans>
