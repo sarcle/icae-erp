@@ -54,5 +54,13 @@ public class MenuController {
 			throw new IcaeErpException("El usuario no cuenta con los permisos adecuados.");
 		}
 	}
+	
+	
+	@RequestMapping("/menu2")
+	public String menu2() {
+		System.out.println("----  HOLA ESTE @RequestMapping(\"/menuPage\")");
+//			return "menu/menuEmployee";
+			return "menu/menuAdministrator";
+	}
 
 }

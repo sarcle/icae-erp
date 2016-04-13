@@ -15,7 +15,7 @@ public class LoginController {
 	@RequestMapping("/")
 	public String root() {
 		System.out.println("----  HOLA ESTE ES ROOT");
-		return "redirect:/menuPage";
+		return "redirect:/login";
 	}
 	
 	@RequestMapping("/login")
@@ -25,6 +25,7 @@ public class LoginController {
 		model.put("isLoginPage", true);
 		return loginView;
 	}
+	
 
 	@RequestMapping("/loginFailed")
 	public String loginError(ModelMap model) {
