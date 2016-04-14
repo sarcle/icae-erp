@@ -3,6 +3,8 @@ package com.uttec.icae.service.usuario;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,13 +14,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.uttec.icae.exception.IcaeErpException;
 import com.uttec.icae.model.Rol;
 import com.uttec.icae.model.Usuario;
 import com.uttec.icae.service.rol.RolService;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-//	private static final Logger logger = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
 	
 	@Autowired
 	private UsuarioService usuarioService;
@@ -33,7 +36,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
-//		logger.debug("en loadUserByUsername...");
+		logger.debug("en loadUserByUsername...");
 		Usuario usuario = new Usuario();
 		usuario.setUsername(username);
 		usuario = usuarioService.findByUsername(usuario);
@@ -64,13 +67,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		if (rol != null) {
 			authorities.add(new SimpleGrantedAuthority(rol.getRol()));
 		} else {
-//			throw new PortalNominaException(messageSource.getMessage("login.authorities.empty", null, null));
-			try {
-				throw new Exception("vacio");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			throw new IcaeErpException(messageSource.getMessage("login.authorities.empty", null, null));
 		}
 		
 		return authorities;

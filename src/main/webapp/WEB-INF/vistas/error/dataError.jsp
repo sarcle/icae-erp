@@ -6,7 +6,7 @@
 <title>Ha ocurrido un error</title>
 </head>
 <body>
-	<c:url var="urlMenu" value="/nomina/menuPage" />
+	<c:url var="urlMenu" value="/menuPage" />
 	<div class="container main-content">
 		<div class="white-panel row">
 			<h2 class="text-danger">Ha ocurrido un error:</h2>

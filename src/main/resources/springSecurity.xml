@@ -22,7 +22,7 @@
 		<intercept-url pattern="/nomina/admin/getLogoUrl" access="permitAll" />
 		<intercept-url pattern="/nomina/employee/**" access="hasRole('ROLE_USER')" requires-channel="any" />
 		<intercept-url pattern="/nomina/admin/**" access="hasRole('ROLE_ADMIN')" requires-channel="any" />
-		<intercept-url pattern="/nomina/menu*/**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" requires-channel="any" />
+		<intercept-url pattern="/menu*/**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" requires-channel="any" />
 		
 		<port-mappings>
         <!-- Default ports -->

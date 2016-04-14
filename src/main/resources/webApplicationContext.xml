@@ -13,8 +13,8 @@
 
 	<context:component-scan base-package="com.uttec.icae"/>
 	
-<!-- 	<context:property-placeholder location="classpath:/portal-nomina-web.properties" -->
-<!-- 		ignore-unresolvable="false" /> -->
+	<context:property-placeholder location="classpath:/uttec-icae-web.properties"
+		ignore-unresolvable="false" />
 	
 	<mvc:annotation-driven>
 		<mvc:argument-resolvers>
@@ -35,8 +35,8 @@
 			<mvc:exclude-mapping path="/sessionTimeout"/>
 			<mvc:exclude-mapping path="/nomina/admin/getLogoUrl"/>
 			<mvc:exclude-mapping path="/resetPassword/*"/>
-			<mvc:exclude-mapping path="/nomina/menu"/>
-			<mvc:exclude-mapping path="/nomina/admin/changePasswordForm"/>
+			<mvc:exclude-mapping path="/menu"/>
+			<mvc:exclude-mapping path="/admin/changePasswordForm"/>
 			<mvc:exclude-mapping path="/nomina/employee/changePasswordForm"/>
 			<mvc:exclude-mapping path="/nomina/admin/changePassword"/>
 			<mvc:exclude-mapping path="/nomina/employee/changePassword"/>
@@ -53,7 +53,7 @@
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="portal-nomina-msg" />
+		<property name="basename" value="uttec-icae-msg" />
 	</bean>
 
 	<bean id="viewResolver"

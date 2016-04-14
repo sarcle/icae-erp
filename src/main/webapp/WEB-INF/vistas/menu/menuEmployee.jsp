@@ -7,7 +7,7 @@
 
 <html>
 <head>
-<title>Menu ${applicationScope.appTitle}</title>
+<%-- <title>Menu ${applicationScope.appTitle}</title> --%>
 </head>
 <body>
 	<div class="container main-content">
@@ -16,10 +16,10 @@
 				<c:url var="urlpayslips" value="/nomina/employee/paySlips"/>
 				<c:url var="urlupdateinfo" value="/nomina/employee/updateInfoForm"/>
 			</sec:authorize>
-			<h2>
-				<span class="text-warning">${applicationScope.appTitle}</span>
-				<span class="text-info"> - ${fn:toUpperCase(sessionScope.usuario.empleado.nombre)}</span> <i class="fa fa-user text-warning"></i>
-			</h2>
+<!-- 			<h2> -->
+<%-- 				<span class="text-warning">${applicationScope.appTitle}</span> --%>
+<%-- 				<span class="text-info"> - ${fn:toUpperCase(sessionScope.usuario.empleado.nombre)}</span> <i class="fa fa-user text-warning"></i> --%>
+<!-- 			</h2> -->
 			<blockquote>
 				<p class="text-info">Seleccione una opción.</p>
 			</blockquote>
@@ -29,14 +29,14 @@
 				<div class="white-panel col-md-10 col-md-offset-1 text-center">
 					<div class="col-md-6 text-center">
 						<div class="well main-content col-md-12 text-center">
-							<h2 class="text-info">${applicationScope.appTitle}</h2>
+<%-- 							<h2 class="text-info">${applicationScope.appTitle}</h2> --%>
 							<p>
-								En esta opción podrás consultar el XML y PDF de tus recibos registrados.
+								En esta opción podrás consultar la Nómina
 							</p>
 							<hr>
 							<p>
 								<a href="${urlpayslips}" class="btn btn-default btn-lg" role="button">
-									<span class="text-primary">Consultar</span>
+									<span class="text-primary">Nómina</span>
 									<i class="fa fa-search text-muted"></i>
 								</a>
 							</p>
@@ -44,14 +44,14 @@
 					</div>
 					<div class="col-md-6 text-center">
 						<div class="well main-content col-md-12 text-center">
-							<h2 class="text-info">Actualizar Datos</h2>
+							<h2 class="text-info">Inventarios</h2>
 							<p>
-								En esta opción podrás actualizar tu contraseña y dirección de correo electrónico.
+								En esta opción podrás entrar al modulo de inventarios.
 							</p>
 							<hr>
 							<p>
-								<a href="${urlupdateinfo}" class="btn btn-default btn-lg" role="button">
-									<span class="text-primary">Actualizar</span>
+<%-- 								<a href="${urlupdateinfo}" class="btn btn-default btn-lg" role="button"> --%>
+									<span class="text-primary">Inventarios</span>
 									<i class="fa fa-gears text-warning"></i>
 								</a>
 							</p>

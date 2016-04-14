@@ -39,7 +39,7 @@ public class MenuController {
 		HttpSession session = request.getSession(); 
 		session.setAttribute("resetPassword", usuario.getResetPassword());
 		session.setAttribute("rol", usuario.getRol().getRol());
-		return "redirect:/menuPage";
+		return "redirect:/menuPage2";
 	}
 	
 	@RequestMapping("/menuPage")
@@ -55,12 +55,9 @@ public class MenuController {
 		}
 	}
 	
-	
-	@RequestMapping("/menu2")
-	public String menu2() {
+	@RequestMapping("/menuPage2")
+	public String menuPage2(SecurityContextHolderAwareRequestWrapper securityContext) {
 		System.out.println("----  HOLA ESTE @RequestMapping(\"/menuPage\")");
-//			return "menu/menuEmployee";
 			return "menu/menuAdministrator";
 	}
-
 }
