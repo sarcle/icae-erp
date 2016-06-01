@@ -100,21 +100,21 @@
 							</p>
 						</div>
 					</div>
-<!-- 					<div class="col-md-6 text-center"> -->
-<!-- 						<div class="well main-content col-md-12 text-center"> -->
-<!-- 							<h2 class="text-info">Configuración del Sistema</h2> -->
-<!-- 							<p> -->
-<!-- 								En esta opción podrás modificar tu contraseña y la configuración del sistema. -->
-<!-- 							</p> -->
-<!-- 							<hr> -->
-<!-- 							<p> -->
-<%-- 								<a href="${urlupdateinfo}" class="btn btn-default btn-lg" role="button"> --%>
-<!-- 									<span class="text-primary">Modificar</span> -->
-<!-- 									<i class="fa fa-gears text-warning"></i> -->
-<!-- 								</a> -->
-<!-- 							</p> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
+					<div class="col-md-6 text-center">
+						<div class="well main-content col-md-12 text-center">
+							<h2 class="text-info">Gestion de usuarios</h2>
+							<p>
+								En esta opción dar de alta usuarios en el sistema.
+							</p>
+							<hr>
+							<p>
+								<a href="${urlemployees}" class="btn btn-default btn-lg" role="button">
+									<span class="text-primary">Usuarios</span>
+									<i class="fa fa-gears text-warning"></i>
+								</a>
+							</p>
+						</div>
+					</div>
 				</div>
 <%-- 			</sec:authorize> --%>
 		</div>

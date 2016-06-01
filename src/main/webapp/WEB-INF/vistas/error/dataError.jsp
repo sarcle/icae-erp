@@ -2,6 +2,27 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
+<link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="/resources/css/signin.css" rel="stylesheet">
+<script src="<c:url value="/resources/vendor/bootstrap.min.js" />"></script>
+<%-- <script src="<c:url value="/resources/js/bootstrap.js" />"></script> --%>
+<script	src="<c:url value="/resources/vendor/bootstrap-confirmation.js" />"></script>
+<script
+	src="<c:url value="/resources/jquery/jquery-1.10.2.min.js" />"></script>
+	<script
+	src="<c:url value="/resources/jquery/jquery.dataTables.min.js" />"></script>
+
+<%-- <script src="<c:url value="/resources/js/jquery/jquery.validate.js" />"></script> --%>
+<script
+	src="<c:url value="/resources/jquery/jquery.prettyLoader.js" />"></script>
+<script
+	src="<c:url value="/resources/jquery/jquery.validationEngine.js" />"></script>
+<script
+	src="<c:url value="/resources/jquery/jquery.validationEngine-es.js" />"></script>
+	
+		<script src="<c:url value="/resources/js/vendor/bootstrap.min.js" />"></script>
+	<script
+		src="<c:url value="/resources/js/vendor/bootstrap-confirmation.js" />"></script>
 <head>
 <title>Ha ocurrido un error</title>
 </head>

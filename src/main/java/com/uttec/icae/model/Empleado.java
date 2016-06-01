@@ -1,15 +1,19 @@
 package com.uttec.icae.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "t_empleado")
@@ -26,9 +30,9 @@ public class Empleado implements Serializable {
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 	
-//	@ManyToOne(optional = false)
-//	@JoinColumn(name = "id_empresa")
-//	private Empresa empresa;
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "id_empresa")
+	private Empresa empresa;
 	
 	@Column(unique = true)
 	private String rfc;
@@ -64,13 +68,13 @@ public class Empleado implements Serializable {
 		this.usuario = usuario;
 	}
 
-//	public Empresa getEmpresa() {
-//		return empresa;
-//	}
-//
-//	public void setEmpresa(Empresa empresa) {
-//		this.empresa = empresa;
-//	}
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
 
 	public String getRfc() {
 		return rfc;
@@ -112,7 +116,7 @@ public class Empleado implements Serializable {
 		builder.append(", usuario=");
 		builder.append(usuario);
 		builder.append(", empresa=");
-//		builder.append(empresa);
+		builder.append(empresa);
 		builder.append(", rfc=");
 		builder.append(rfc);
 		builder.append(", nombre=");
