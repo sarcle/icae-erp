@@ -104,9 +104,10 @@ public class EmpleadoServiceImpl implements EmpleadoService, ResourceLoaderAware
 		usuario.setUsername(empleado.getRfc());
 		usuario.setPassword(passwordEncoderService.getPasswordEncoded(empleado.getRfc()));
 		usuario.setResetPassword(true);
-		usuario.setRol(rol);
+        usuario.setRol(rol);
 		usuario.setEnabled(empleado.getUsuario().getEnabled());
-		usuario.setEmpleado(empleado);
+//		usuario.setEmpleado(empleado);
+		logger.debug("usuario " + usuario);
 		usuarioRepository.save(usuario);
 		empleado.setUsuario(usuario);
 		empleadoRepository.save(empleado);

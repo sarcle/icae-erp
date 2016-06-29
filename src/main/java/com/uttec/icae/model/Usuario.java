@@ -34,8 +34,8 @@ public class Usuario implements Serializable {
 	@JoinColumn(name = "id_rol", unique = false)
 	private Rol rol;
 
-	@OneToOne(mappedBy = "usuario")
-	private Empleado empleado;
+//	@OneToOne(mappedBy = "usuario")
+//	private Empleado empleado;
 	
 	private Boolean enabled;
 
@@ -87,13 +87,13 @@ public class Usuario implements Serializable {
 		this.rol = rol;
 	}
 
-	public Empleado getEmpleado() {
-		return empleado;
-	}
-
-	public void setEmpleado(Empleado empleado) {
-		this.empleado = empleado;
-	}
+//	public Empleado getEmpleado() {
+//		return empleado;
+//	}
+//
+//	public void setEmpleado(Empleado empleado) {
+//		this.empleado = empleado;
+//	}
 	
 	public Boolean getEnabled() {
 		return enabled;

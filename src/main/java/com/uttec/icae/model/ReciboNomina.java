@@ -15,8 +15,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
-//@Entity
-//@Table(name = "t_recibo_nomina")
+@Entity
+@Table(name = "t_recibo_nomina")
 public class ReciboNomina implements Serializable {
 
 	private static final long serialVersionUID = -1025206111358587961L;
