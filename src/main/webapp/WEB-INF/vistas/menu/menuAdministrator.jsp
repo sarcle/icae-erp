@@ -8,29 +8,6 @@
 <html>
 <head>
 <title>Menu ${applicationScope.appTitle}</title>
-<link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-<link href="/resources/css/signin.css" rel="stylesheet">
-<script src="<c:url value="/resources/vendor/bootstrap.min.js" />"></script>
-<%-- <script src="<c:url value="/resources/js/bootstrap.js" />"></script> --%>
-<script	src="<c:url value="/resources/vendor/bootstrap-confirmation.js" />"></script>
-<script
-	src="<c:url value="/resources/jquery/jquery-1.10.2.min.js" />"></script>
-	<script
-	src="<c:url value="/resources/jquery/jquery.dataTables.min.js" />"></script>
-
-<%-- <script src="<c:url value="/resources/js/jquery/jquery.validate.js" />"></script> --%>
-<script
-	src="<c:url value="/resources/jquery/jquery.prettyLoader.js" />"></script>
-<script
-	src="<c:url value="/resources/jquery/jquery.validationEngine.js" />"></script>
-<script
-	src="<c:url value="/resources/jquery/jquery.validationEngine-es.js" />"></script>
-	
-		<script src="<c:url value="/resources/js/vendor/bootstrap.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/vendor/bootstrap-confirmation.js" />"></script>
-	
-<!-- <link href="/resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
 </head>
 <body>
 				
@@ -93,7 +70,7 @@
 							</p>
 							<hr>
 							<p>
-								<a href="${urlemployees}" class="btn btn-default btn-lg" role="button">
+								<a href="" class="btn btn-default btn-lg" role="button">
 									<span class="text-primary">Continuar</span>
 									<i class="fa fa-users text-success"></i>
 								</a>

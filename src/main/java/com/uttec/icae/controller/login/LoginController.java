@@ -15,8 +15,7 @@ public class LoginController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
-	private static final String loginView = "login";
-	private static final String loginAdmin = "menu/menuAdministrator";
+	private static final String loginView = "login/login";
 
 	@RequestMapping("/")
 	public String root() {
@@ -30,7 +29,6 @@ public class LoginController {
 		System.out.println("----  HOLA ESTE ES /login");
 		model.put("isLoginPage", true);
 		return loginView;
-//		return loginAdmin;
 	}
 	
 
