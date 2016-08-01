@@ -6,17 +6,20 @@
 <%@ taglib prefix="pnw" tagdir="/WEB-INF/tags" %>
 <html>
 <head>
-<title>Módulo de Usuarios</title>
+<title>Módulo de inventarios</title>
 <script src="<c:url value="/resources/js/empleado/empleado.js"/>"></script>
 </head>
 <body>
 	<div class="container main-content">
 		<div class="white-panel row">
-			<h2 class="text-warning">Alta de Usuarios
+			<h2 class="text-warning">Alta de Productos
 			<span class="text-info"> - ADMINISTRADOR</span> <i class="fa fa-desktop text-warning"></i>
 			</h2>
+<!-- 			<blockquote> -->
+<!-- 				<p class="text-info">Ingresa los datos del usuario a dar de alta, al registrar el usuario el RFC será dado de alta como nombre de usuario y password.</p> -->
+<!-- 			</blockquote> -->
 			<blockquote>
-				<p class="text-info">Ingresa los datos del usuario a dar de alta, al registrar el usuario el RFC será dado de alta como nombre de usuario y password.</p>
+				<p class="text-info">Ingrese los datos del nuevo producto./p>
 			</blockquote>
 			<hr>
 			<pnw:errorMessage/>
@@ -27,44 +30,36 @@
 						<form:form id="empleadoForm" action="${saveUrl}" method="post" modelAttribute="empleado" cssClass="form-horizontal" role="form">
 							<form:hidden path="id"/>
 							<div class="form-group">
-								<label for="rfc" class="control-label col-lg-4 col-md-4">*RFC: </label>
+								<label for="rfc" class="control-label col-lg-4 col-md-4">*Clave: </label>
 								<div class="col-lg-7 col-md-7">
 									<form:input path="rfc" cssClass="form-control input-sm validate[required, custom[rfcFisica]]" id="rfc" />
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="nombre" class="control-label col-lg-4 col-md-4">*Nombre: </label>
+								<label for="nombre" class="control-label col-lg-4 col-md-4">*Descripción: </label>
 								<div class="col-lg-7 col-md-7">
 									<form:input path="nombre" cssClass="form-control input-sm validate[required]" id="nombre" />
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="mail" class="control-label col-lg-4 col-md-4">*E-mail: </label>
+								<label for="mail" class="control-label col-lg-4 col-md-4">*Presentación: </label>
 								<div class="col-lg-7 col-md-7">
 									<form:input path="email" cssClass="form-control input-sm validate[required, custom[email]] noUpper" id="mail" />
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="empresa" class="control-label col-lg-4 col-md-4">*Empresa: </label>
+								<label for="mail" class="control-label col-lg-4 col-md-4">*Unidad: </label>
 								<div class="col-lg-7 col-md-7">
-									<form:select path="empresa.id" cssClass="validate[required] form-control input-sm" id="empresa">
-										<form:option value="">- Seleccione una opción -</form:option>
-										<c:forEach items="${empresas}" var="empresa">
-											<form:option value="${empresa.id}">${empresa.nombre}</form:option>
-								  		</c:forEach>
-									</form:select>
+									<form:input path="email" cssClass="form-control input-sm validate[required, custom[email]] noUpper" id="mail" />
 								</div>
-		  					</div>
-		  					<div class="form-group">
-								<label for="status" class="control-label col-lg-4 col-md-4">*Estado: </label>
+							</div>
+							<div class="form-group">
+								<label for="mail" class="control-label col-lg-4 col-md-4">*Precio: </label>
 								<div class="col-lg-7 col-md-7">
-									<form:select path="usuario.enabled" cssClass="validate[required] form-control input-sm" id="status">
-										<form:option value="">- Seleccione una opción -</form:option>
-										<form:option value="true">ACTIVO</form:option>
-										<form:option value="false">INACTIVO</form:option>
-									</form:select>
+									<form:input path="email" cssClass="form-control input-sm validate[required, custom[email]] noUpper" id="mail" />
 								</div>
-		  					</div>
+							</div>
+							
 							<hr>
 							<p class="text-center">
 								<button id="save" type="submit" class="btn btn-primary">Guardar <i class="fa fa-floppy-o"></i></button>

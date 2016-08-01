@@ -18,6 +18,7 @@
 				<c:url var="urlupload" value="/nomina/admin/uploadPaySlipsForm"/>
 				<c:url var="urlemployees" value="/nomina/admin/employees"/>
 				<c:url var="urlupdateinfo" value="/nomina/admin/updateInfo"/>
+				<c:url var="urlinvetariosproductos" value="/inventarios/productosForm"/>
 			</sec:authorize>
 			<h2>
 				<span class="text-warning">${applicationScope.appTitle}</span>
@@ -70,8 +71,8 @@
 							</p>
 							<hr>
 							<p>
-								<a href="" class="btn btn-default btn-lg" role="button">
-									<span class="text-primary">Continuar</span>
+								<a href="${urlinvetariosproductos}" class="btn btn-default btn-lg" role="button">
+									<span class="text-primary">Inventarios</span>
 									<i class="fa fa-users text-success"></i>
 								</a>
 							</p>
