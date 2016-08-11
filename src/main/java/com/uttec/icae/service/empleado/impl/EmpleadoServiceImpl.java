@@ -63,6 +63,13 @@ public class EmpleadoServiceImpl implements EmpleadoService, ResourceLoaderAware
 		return empleadoRepository.findByRfc(empleado.getRfc());
 	}
 	
+	@Transactional(readOnly = true)
+	@Override
+	public Empleado findByEmail(Empleado empleado) {
+		logger.debug("Recuperando empleado por Mail");
+		return empleadoRepository.findByEmail(empleado.getEmail());
+	}
+	
 	@Transactional
 	@Override
 	public void update(Empleado updated) {

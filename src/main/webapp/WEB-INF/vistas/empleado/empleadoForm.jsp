@@ -54,9 +54,9 @@
 			<h2 class="text-warning">Alta de Usuarios
 			<span class="text-info"> - ADMINISTRADOR</span> <i class="fa fa-desktop text-warning"></i>
 			</h2>
-			<blockquote>
-				<p class="text-info">Ingresa los datos del usuario a dar de alta, al registrar el usuario el RFC será dado de alta como nombre de usuario y password.</p>
-			</blockquote>
+<!-- 			<blockquote> -->
+<!-- 				<p class="text-info">Ingresa los datos del usuario a dar de alta, al registrar el usuario el RFC será dado de alta como nombre de usuario y password.</p> -->
+<!-- 			</blockquote> -->
 			<hr>
 			<pnw:errorMessage/>
 			<div class="col-md-offset-3 col-md-6">

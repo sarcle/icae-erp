@@ -48,6 +48,7 @@ public class LoginController {
 
 	@RequestMapping("/logout")
 	public String logout(ModelMap model) {
+		logger.debug("CERRANDO SESION");
 		model.put("isLoginPage", true);
 		return "login/logoutSuccess";
 	}

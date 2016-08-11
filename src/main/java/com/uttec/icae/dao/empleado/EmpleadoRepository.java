@@ -14,4 +14,6 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
 
 	Empleado findByRfcAndEmail(String rfc, String email);
 
+	Empleado findByEmail(String email);
+
 }

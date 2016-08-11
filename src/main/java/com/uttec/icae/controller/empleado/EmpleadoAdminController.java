@@ -63,18 +63,27 @@ public class EmpleadoAdminController {
 	}
 	
 	@RequestMapping(value = {"/nomina/admin/saveEmployee"}, method = RequestMethod.POST)
-	public String saveEmployee(@ModelAttribute Empleado empleado, ModelMap model,
-			final RedirectAttributes redirectAttributes) {
-		if (empleado.getId() != null) {
-			empleadoService.update(empleado);
-			redirectAttributes.addFlashAttribute("messageSuccess", 
-					messageSource.getMessage("messages.success.update", null, null));
+	public String saveEmployee(@ModelAttribute Empleado empleado, ModelMap model, final RedirectAttributes redirectAttributes) {
+		Empleado empleadoPorRfc = empleadoService.findByRfc(empleado);
+		if (empleadoPorRfc == null){
+			Empleado empleadoPorMail = empleadoService.findByEmail(empleado);
+			if (empleadoPorMail == null){
+				if (empleado.getId() != null) {
+					empleadoService.update(empleado);
+					redirectAttributes.addFlashAttribute("messageSuccess", 
+							messageSource.getMessage("messages.success.update", null, null));
+				} else {
+					empleadoService.save(empleado);
+					redirectAttributes.addFlashAttribute("messageSuccess", 
+							messageSource.getMessage("messages.success.save", null, null));
+				}
+			} else {
+				redirectAttributes.addFlashAttribute("messageSuccess", 
+						messageSource.getMessage("messages.error.exist.mail.empleado", null, null));
+			}
 		} else {
-			logger.debug("Entro aquiiiiiii");
-			logger.debug("empleado " + empleado);
-			empleadoService.save(empleado);
 			redirectAttributes.addFlashAttribute("messageSuccess", 
-					messageSource.getMessage("messages.success.save", null, null));
+					messageSource.getMessage("messages.error.exist.rfc.empleado", null, null));
 		}
 		return "redirect:/nomina/admin/employees";
 	}

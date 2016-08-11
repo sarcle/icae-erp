@@ -39,14 +39,15 @@ public class MenuController {
 		HttpSession session = request.getSession(); 
 		session.setAttribute("resetPassword", usuario.getResetPassword());
 		session.setAttribute("rol", usuario.getRol().getRol());
-		return "redirect:/menuPage2";
+		return "redirect:/menuPage";
 	}
 	
 	@RequestMapping("/menuPage")
 	public String menuPage(SecurityContextHolderAwareRequestWrapper securityContext) {
 		System.out.println("----  HOLA ESTE @RequestMapping(\"/menuPage\")");
 		if (securityContext.isUserInRole(TipoRol.USUARIO.getName())) {
-			return "menu/menuEmployee";
+//			return "menu/menuEmployee";
+			return "menu/menuAdministrator";
 		} else if (securityContext.isUserInRole(TipoRol.ADMINISTRADOR.getName())) {
 			return "menu/menuAdministrator";
 		} else {

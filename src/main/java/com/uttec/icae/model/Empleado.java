@@ -38,6 +38,7 @@ public class Empleado implements Serializable {
 	
 	private String nombre;
 	
+	@Column(unique = true)
 	private String email;
 	
 //	@Transient

@@ -22,4 +22,6 @@ public interface EmpleadoService {
 
 	void resetPassword(Empleado empleado);
 
+	Empleado findByEmail(Empleado empleado);
+
 }

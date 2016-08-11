@@ -44,6 +44,17 @@ Hibernate:
         id_usuario bigint not null,
         primary key (id_empleado)
     )
+    create table t_producto (
+        id_producto bigint not null auto_increment,
+        clave varchar(255),
+        descripcion varchar(255),
+        presentacion varchar(255),
+        no_existencias int,
+        cant_max double,
+        cant_min double,
+        precio double,
+        primary key (id_producto)
+    )
 Hibernate: 
     create table t_empresa (
         id_empresa bigint not null auto_increment,

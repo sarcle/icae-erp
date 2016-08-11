@@ -18,7 +18,7 @@
 				<c:url var="urlupload" value="/nomina/admin/uploadPaySlipsForm"/>
 				<c:url var="urlemployees" value="/nomina/admin/employees"/>
 				<c:url var="urlupdateinfo" value="/nomina/admin/updateInfo"/>
-				<c:url var="urlinvetariosproductos" value="/inventarios/productosForm"/>
+				<c:url var="urlproductos" value="/inventarios/productos"/>
 			</sec:authorize>
 			<h2>
 				<span class="text-warning">${applicationScope.appTitle}</span>
@@ -55,7 +55,7 @@
 							<hr>
 							<p>
 								<a href="${urlupload}" class="btn btn-default btn-lg" role="button">
-									<span class="text-primary">Nomina</span>
+									<span class="text-primary">Nómina</span>
 									<i class="fa fa-upload text-danger"></i>
 								</a>
 							</p>
@@ -71,7 +71,7 @@
 							</p>
 							<hr>
 							<p>
-								<a href="${urlinvetariosproductos}" class="btn btn-default btn-lg" role="button">
+								<a href="${urlproductos}" class="btn btn-default btn-lg" role="button">
 									<span class="text-primary">Inventarios</span>
 									<i class="fa fa-users text-success"></i>
 								</a>
@@ -80,7 +80,7 @@
 					</div>
 					<div class="col-md-6 text-center">
 						<div class="well main-content col-md-12 text-center">
-							<h2 class="text-info">Gestion de usuarios</h2>
+							<h2 class="text-info">Gestión de usuarios</h2>
 							<p>
 								En esta opción dar de alta usuarios en el sistema.
 							</p>

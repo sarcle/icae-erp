@@ -47,279 +47,85 @@
 </head>
 <body>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">	
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item</a></li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-            <li><a href="">More navigation</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
-
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>
-
-          <h2 class="sub-header">Section title</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!--     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
-<!--     <script src="../../dist/js/bootstrap.min.js"></script> -->
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="/resources/js/holder.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/resources/js/ie10-viewport-bug-workaround.js"></script>
-<!--       <div class="row"> -->
-<!--         <div class="col-sm-3 col-md-2 sidebar"> -->
-<!--           <ul class="nav nav-sidebar"> -->
-<!--             <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li> -->
-<!--             <li><a href="#">Reports</a></li> -->
-<!--             <li><a href="#">Analytics</a></li> -->
-<!--             <li><a href="#">Export</a></li> -->
-<!--           </ul> -->	
-<!--           <ul class="nav nav-sidebar"> -->
-<!--             <li><a href="">Nav item</a></li> -->
-<!--             <li><a href="">Nav item again</a></li> -->
-<!--             <li><a href="">One more nav</a></li> -->
-<!--             <li><a href="">Another nav item</a></li> -->
-<!--             <li><a href="">More navigation</a></li> -->
-<!--           </ul> -->
-<!--           <ul class="nav nav-sidebar"> -->
-<!--             <li><a href="">Nav item again</a></li> -->
-<!--             <li><a href="">One more nav</a></li> -->
-<!--             <li><a href="">Another nav item</a></li> -->
-<!--           </ul> -->
-<!--         </div> -->
-<!-- 	<div class="container main-content"> -->
-<!-- 		<div class="white-panel row"> -->
-<!-- 			<h2 class="text-warning">Alta de Productos -->
+	<div class="container main-content">
+		<div class="white-panel row">
+			<h2 class="text-warning">Alta de Productos
 <!-- 			<span class="text-info"> - ADMINISTRADOR</span> <i class="fa fa-desktop text-warning"></i> -->
-<!-- 			</h2> -->
-<!-- <!-- 			<blockquote> --> 
-<!-- <!-- 				<p class="text-info">Ingresa los datos del usuario a dar de alta, al registrar el usuario el RFC será dado de alta como nombre de usuario y password.</p> --> 
-<!-- <!-- 			</blockquote> --> 
-<!-- 			<blockquote> -->
-<!-- 				<p class="text-info">Ingrese los datos del nuevo producto./p> -->
-<!-- 			</blockquote> -->
-<!-- 			<hr> -->
-<%-- 			<pnw:errorMessage/> --%>
+			</h2>
+			<blockquote> 
+			<p class="text-info">Ingresa los datos del producto a dar de alta.</p> 
+		    </blockquote> 
+			<blockquote>
+				<p class="text-info">Ingrese los datos del nuevo producto.</p>
+			</blockquote>
+			<hr>
+			<pnw:errorMessage/>
 			
-<!-- 			<div class="col-md-offset-3 col-md-6"> -->
-<!-- 				<div class="panel panel-default"> -->
-<!-- 					<div class="panel-body"> -->
-<%-- 						<c:url var="saveUrl" value="/nomina/admin/saveEmployee"/> --%>
-<%-- 						<form:form id="empleadoForm" action="${saveUrl}" method="post" modelAttribute="empleado" cssClass="form-horizontal" role="form"> --%>
-<%-- 							<form:hidden path="id"/> --%>
-<!-- 							<div class="form-group"> -->
-<!-- 								<label for="rfc" class="control-label col-lg-4 col-md-4">*Clave: </label> -->
-<!-- 								<div class="col-lg-7 col-md-7"> -->
-<%-- 									<form:input path="rfc" cssClass="form-control input-sm validate[required, custom[rfcFisica]]" id="rfc" /> --%>
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 							<div class="form-group"> -->
-<!-- 								<label for="nombre" class="control-label col-lg-4 col-md-4">*Descripción: </label> -->
-<!-- 								<div class="col-lg-7 col-md-7"> -->
-<%-- 									<form:input path="nombre" cssClass="form-control input-sm validate[required]" id="nombre" /> --%>
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 							<div class="form-group"> -->
-<!-- 								<label for="mail" class="control-label col-lg-4 col-md-4">*Presentación: </label> -->
-<!-- 								<div class="col-lg-7 col-md-7"> -->
-<%-- 									<form:input path="email" cssClass="form-control input-sm validate[required, custom[email]] noUpper" id="mail" /> --%>
-<!-- 								</div> -->
-<!-- 							</div> -->
+			<div class="col-md-offset-3 col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<c:url var="saveUrl" value="/inventarios/saveProducto"/>
+						<form:form id="productoForm" action="${saveUrl}" method="post" modelAttribute="producto" cssClass="form-horizontal" role="form">
+							<form:hidden path="id"/>
+							<div class="form-group">
+								<label for="clave" class="control-label col-lg-4 col-md-4">*Clave: </label>
+								<div class="col-lg-7 col-md-7">
+									<form:input path="clave" cssClass="form-control input-sm validate[required]" id="clave" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="descripcion" class="control-label col-lg-4 col-md-4">*Descripción: </label>
+								<div class="col-lg-7 col-md-7">
+									<form:input path="descripcion" cssClass="form-control input-sm validate[required] " id="descripcion" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="presentacion" class="control-label col-lg-4 col-md-4">*Presentación: </label>
+								<div class="col-lg-7 col-md-7">
+									<form:input path="presentacion" cssClass="form-control input-sm validate[required] " id="presentacion" />
+								</div>
+							</div>
 <!-- 							<div class="form-group"> -->
 <!-- 								<label for="mail" class="control-label col-lg-4 col-md-4">*Unidad: </label> -->
 <!-- 								<div class="col-lg-7 col-md-7"> -->
 <%-- 									<form:input path="email" cssClass="form-control input-sm validate[required, custom[email]] noUpper" id="mail" /> --%>
 <!-- 								</div> -->
 <!-- 							</div> -->
-<!-- 							<div class="form-group"> -->
-<!-- 								<label for="mail" class="control-label col-lg-4 col-md-4">*Precio: </label> -->
-<!-- 								<div class="col-lg-7 col-md-7"> -->
-<%-- 									<form:input path="email" cssClass="form-control input-sm validate[required, custom[email]] noUpper" id="mail" /> --%>
-<!-- 								</div> -->
-<!-- 							</div> -->
-							
-<!-- 							<hr> -->
-<!-- 							<p class="text-center"> -->
-<!-- 								<button id="save" type="submit" class="btn btn-primary">Guardar <i class="fa fa-floppy-o"></i></button> -->
-<%-- 								<a id="cancelar" href="<c:url value="/nomina/admin/employees"/>" class="btn btn-danger">Cancelar <i class="fa fa-times"></i></a> --%>
-<!-- 							</p> -->
-<%-- 						</form:form> --%>
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
+							<div class="form-group">
+								<label for="precio" class="control-label col-lg-4 col-md-4">*Precio: </label>
+								<div class="col-lg-7 col-md-7">
+									<form:input path="precio" cssClass="form-control input-sm validate[required] " id="precio" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="cantMax" class="control-label col-lg-4 col-md-4">*Cantiad Máxima: </label>
+								<div class="col-lg-7 col-md-7">
+									<form:input path="cantMax" cssClass="form-control input-sm validate[required] " id="cantMax" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="cantMin" class="control-label col-lg-4 col-md-4">*Cantidad Mínima: </label>
+								<div class="col-lg-7 col-md-7">
+									<form:input path="cantMin" cssClass="form-control input-sm validate[required] " id="cantMin" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="noExistencias" class="control-label col-lg-4 col-md-4">*Existencia: </label>
+								<div class="col-lg-7 col-md-7">
+									<form:input path="noExistencias" cssClass="form-control input-sm validate[required] " id="noExistencias" />
+								</div>
+							</div>
+							<hr>
+							<p class="text-center">
+								<button id="save" type="submit" class="btn btn-primary">Guardar <i class="fa fa-floppy-o"></i></button>
+								<a id="cancelar" href="<c:url value="/inventarios/productos"/>" class="btn btn-danger">Cancelar <i class="fa fa-times"></i></a>
+							</p>
+						</form:form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

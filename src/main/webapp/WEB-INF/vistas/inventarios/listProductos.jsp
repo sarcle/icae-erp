@@ -45,17 +45,17 @@
 	<script
 		src="<c:url value="/resources/js/vendor/bootstrap-confirmation.js" />"></script>
 <head>
-<title>Usuarios Registrados</title>
+<title>Productos Registrados</title>
 </head>
 <body>
 	<div class="container main-content">
 		<div class="white-panel row">
 			<h2>
-				<span class="text-warning">Módulo de Usuarios</span>
-				<span class="text-info"> - ADMINISTRADOR</span> <i class="fa fa-desktop text-warning"></i>
+				<span class="text-warning">Módulo de inventarios</span>
+<!-- 				<span class="text-info"> - ADMINISTRADOR</span> <i class="fa fa-desktop text-warning"></i> -->
 			</h2>
 			<blockquote>
-				<p class="text-info">Seleccione un usuario para editar o agrega uno nuevo.</p>
+				<p class="text-info">Selecciona un producto para editarlo o agrega uno nuevo.</p>
 			</blockquote>
 			<hr>
 			<div class="row">
@@ -63,35 +63,28 @@
 			</div>
 			<div class="text-center">
 				<p>
-					<a href="<c:url value="/nomina/admin/newEmployee"/>" class="btn btn-primary" > <i class="fa fa-plus"></i> Agregar Usuario </a>
+					<a href="<c:url value="/inventarios/newProducto"/>" class="btn btn-primary" > <i class="fa fa-plus"></i> Agregar Producto </a>
 					<a id="cancelar" href="<c:url value="/menuPage"/>" class="btn btn-danger">Volver <i class="fa fa-times"></i></a>
 				</p>
 			</div>
 			<div class="col-md-offset-1 col-md-10">
 				<div class="panel panel-warning">
 					<div class="panel-heading">
-						<strong>Usuarios Registrados</strong>
+						<strong>Productos Registrados</strong>
 					</div>
 					<div class="table-responsive">
-						<display:table htmlId="employees" id="employee" name="${employees}" 
+						<display:table htmlId="productos" id="producto" name="${productos}" 
  							class="table table-hover table-striped table-condensed table-search" requestURI="/nomina"> 
  							<display:column title="Id" property="id" headerClass="text-primary"/>
- 							<display:column title="Id Usuario" property="usuario.id" headerClass="text-primary"/>
- 							<display:column title="RFC" property="rfc" headerClass="text-primary"/>
- 							<display:column title="Nombre" property="nombre" headerClass="text-primary"/>
- 							<display:column title="E-mail" property="email" headerClass="text-primary"/>
- 							<display:column title="Estatus" headerClass="text-primary text-center" class="text-center">
-								<c:choose>
-									<c:when test="${employee.usuario.enabled}">
-								    	<i class="fa fa-check text-success"></i>  
-								    </c:when>
-									<c:otherwise>
-										<i class="fa fa-times text-danger"></i>
-									</c:otherwise>
-								</c:choose>
- 							</display:column>
+ 							<display:column title="Clave" property="clave" headerClass="text-primary"/>
+ 							<display:column title="Descripcion" property="descripcion" headerClass="text-primary"/>
+ 							<display:column title="Presentacion" property="presentacion" headerClass="text-primary"/>
+ 							<display:column title="Precio" property="precio" headerClass="text-primary"/>
+ 							<display:column title="Cantidad Máxima" property="cantMax" headerClass="text-primary"/>
+ 							<display:column title="Cantidad Mínima" property="cantMin" headerClass="text-primary"/>
+ 							<display:column title="Existencia" property="noExistencias" headerClass="text-primary"/>
  							<display:column title="Modificar" headerClass="text-primary text-center" class="text-center">
- 								<a href="<c:url value="/nomina/admin/modifyEmployee/${employee.id}"/>" class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a>
+ 								<a href="<c:url value="/inventarios/modifyProducto/${producto.id}"/>" class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a>
  							</display:column>
  						</display:table>
 					</div>
