@@ -8,7 +8,6 @@
 <head>
 <title>Módulo de inventarios</title>
 <script src="<c:url value="/resources/js/empleado/empleado.js"/>"></script>
-<script src="<c:url value="/resources/js/producto/producto.js"/>"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script	src="<c:url value="/resources/vendor/bootstrap-confirmation.js" />"></script>
 <script
@@ -27,6 +26,7 @@
 		<script src="<c:url value="/resources/js/vendor/bootstrap.min.js" />"></script>
 	<script
 		src="<c:url value="/resources/js/vendor/bootstrap-confirmation.js" />"></script>
+		<script src="<c:url value="/resources/js/cliente/cliente.js"/>"></script>
 		    <!-- Bootstrap core CSS -->
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
 
@@ -50,14 +50,14 @@
 
 	<div class="container main-content">
 		<div class="white-panel row">
-			<h2 class="text-warning">Alta de Productos
+			<h2 class="text-warning">Alta de Clientes
 <!-- 			<span class="text-info"> - ADMINISTRADOR</span> <i class="fa fa-desktop text-warning"></i> -->
 			</h2>
 			<blockquote> 
-			<p class="text-info">Ingresa los datos del producto a dar de alta.</p> 
+			<p class="text-info">Ingresa los datos del cliente a dar de alta.</p> 
 		    </blockquote> 
 			<blockquote>
-				<p class="text-info">Ingrese los datos del nuevo producto.</p>
+				<p class="text-info">Ingrese los datos del nuevo cliente.</p>
 			</blockquote>
 			<hr>
 			<pnw:errorMessage/>
@@ -65,8 +65,8 @@
 			<div class="col-md-offset-3 col-md-6">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<c:url var="saveUrl" value="/inventarios/saveProducto"/>
-						<form:form id="productoForm" action="${saveUrl}" method="post" modelAttribute="producto" cssClass="form-horizontal" role="form">
+						<c:url var="saveUrl" value="/facturacion/saveCliente"/>
+						<form:form id="clienteForm" action="${saveUrl}" method="post" modelAttribute="cliente" cssClass="form-horizontal" role="form">
 							<form:hidden path="id"/>
 							<div class="form-group">
 								<label for="clave" class="control-label col-lg-4 col-md-4">*Clave: </label>
@@ -75,52 +75,69 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="descripcion" class="control-label col-lg-4 col-md-4">*Descripción: </label>
+								<label for="rfc" class="control-label col-lg-4 col-md-4">*RFC: </label>
 								<div class="col-lg-7 col-md-7">
-									<form:input path="descripcion" cssClass="form-control input-sm validate[required] " id="descripcion" />
+									<form:input path="rfc" cssClass="form-control input-sm validate[required, custom[rfcFisica]]" id="rfc" />
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="presentacion" class="control-label col-lg-4 col-md-4">*Presentación: </label>
+								<label for="nombre" class="control-label col-lg-4 col-md-4">*Nombre: </label>
 								<div class="col-lg-7 col-md-7">
-									<form:input path="presentacion" cssClass="form-control input-sm validate[required] " id="presentacion" />
-								</div>
-							</div>
-<!-- 							<div class="form-group"> -->
-<!-- 								<label for="mail" class="control-label col-lg-4 col-md-4">*Unidad: </label> -->
-<!-- 								<div class="col-lg-7 col-md-7"> -->
-<%-- 									<form:input path="email" cssClass="form-control input-sm validate[required, custom[email]] noUpper" id="mail" /> --%>
-<!-- 								</div> -->
-<!-- 							</div> -->
-							<div class="form-group">
-								<label for="precio" class="control-label col-lg-4 col-md-4">*Precio: </label>
-								<div class="col-lg-7 col-md-7">
-<%-- 								<fmt:formatNumber value="${concepto.valorUnitario}" type="currency" maxFractionDigits="6"/> --%>
-									<form:input path="precio" type="currency" maxFractionDigits="2" cssClass="form-control input-sm validate[required] " id="precio" />
+									<form:input path="nombre" cssClass="form-control input-sm validate[required] " id="nombre" />
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="cantMax" class="control-label col-lg-4 col-md-4">*Cantiad Máxima: </label>
+								<label for="calle" class="control-label col-lg-4 col-md-4">*Calle: </label>
 								<div class="col-lg-7 col-md-7">
-									<form:input path="cantMax" cssClass="form-control input-sm validate[required] " id="cantMax" />
+									<form:input path="calle" cssClass="form-control input-sm validate[required] " id="calle" />
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="cantMin" class="control-label col-lg-4 col-md-4">*Cantidad Mínima: </label>
+								<label for="colonia" class="control-label col-lg-4 col-md-4">*Colonia: </label>
 								<div class="col-lg-7 col-md-7">
-									<form:input path="cantMin" cssClass="form-control input-sm validate[required] " id="cantMin" />
+									<form:input path="colonia" cssClass="form-control input-sm validate[required] " id="colonia" />
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="noExistencias" class="control-label col-lg-4 col-md-4">*Existencia: </label>
+								<label for="codigoPostal" class="control-label col-lg-4 col-md-4">*Código Postal: </label>
 								<div class="col-lg-7 col-md-7">
-									<form:input path="noExistencias" cssClass="form-control input-sm validate[required] " id="noExistencias" />
+									<form:input path="codigoPostal" cssClass="form-control input-sm validate[required] " id="codigoPostal" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="municipio" class="control-label col-lg-4 col-md-4">*Municipio: </label>
+								<div class="col-lg-7 col-md-7">
+									<form:input path="municipio" cssClass="form-control input-sm validate[required] " id="municipio" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="estado" class="control-label col-lg-4 col-md-4">*Estado: </label>
+								<div class="col-lg-7 col-md-7">
+									<form:input path="estado" cssClass="form-control input-sm validate[required] " id="estado" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="pais" class="control-label col-lg-4 col-md-4">*País: </label>
+								<div class="col-lg-7 col-md-7">
+									<form:input path="pais" cssClass="form-control input-sm validate[required] " id="pais" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="pais" class="control-label col-lg-4 col-md-4">*Número Exterior: </label>
+								<div class="col-lg-7 col-md-7">
+									<form:input path="pais" cssClass="form-control input-sm validate[required] " id="pais" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="pais" class="control-label col-lg-4 col-md-4">*Número Interior: </label>
+								<div class="col-lg-7 col-md-7">
+									<form:input path="pais" cssClass="form-control input-sm validate[required] " id="pais" />
 								</div>
 							</div>
 							<hr>
 							<p class="text-center">
 								<button id="save" type="submit" class="btn btn-primary">Guardar <i class="fa fa-floppy-o"></i></button>
-								<a id="cancelar" href="<c:url value="/inventarios/productos"/>" class="btn btn-danger">Cancelar <i class="fa fa-times"></i></a>
+								<a id="cancelar" href="<c:url value="/facturacion/clientes"/>" class="btn btn-danger">Cancelar <i class="fa fa-times"></i></a>
 							</p>
 						</form:form>
 					</div>

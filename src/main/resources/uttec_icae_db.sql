@@ -55,6 +55,22 @@ Hibernate:
         precio double,
         primary key (id_producto)
     )
+    create table t_cliente (
+        id_cliente bigint not null auto_increment,
+        clave varchar(255),
+        rfc varchar(20),
+        nombre varchar(255),
+        calle varchar(255),
+        colonia varchar(200),
+        codigo_postal int,
+        municipio varchar (250),
+        estado varchar (250),
+        pais varchar (100),
+        no_exterior varchar(50),
+        no_interior varchar(50),
+        email varchar (200),
+        primary key (id_cliente)
+    )
 Hibernate: 
     create table t_empresa (
         id_empresa bigint not null auto_increment,

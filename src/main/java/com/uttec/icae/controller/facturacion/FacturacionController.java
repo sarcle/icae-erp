@@ -1,4 +1,4 @@
-package com.uttec.icae.controller.inventarios;
+package com.uttec.icae.controller.facturacion;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,57 +13,57 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.uttec.icae.model.Producto;
-import com.uttec.icae.service.producto.ProductoService;
+import com.uttec.icae.model.Cliente;
+import com.uttec.icae.service.cliente.ClienteService;
 
 @Controller
 @SessionAttributes({ "usuario" })
-public class InventariosController {
-
-	private static final Logger logger = LoggerFactory
-			.getLogger(InventariosController.class);
-
+public class FacturacionController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(FacturacionController.class);
+	
 	@Autowired
-	private ProductoService productoService;
+	private ClienteService clienteService;
 
 	@Autowired
 	private MessageSource messageSource;
 
-	@RequestMapping("/inventarios/productos")
+	@RequestMapping("/facturacion/clientes")
 	public String listProductos(ModelMap model) {
-		logger.debug("Recuperando productos");
-		model.put("productos", productoService.findAll());
-		return "/inventarios/listProductos";
+		logger.debug("Recuperando clientes");
+		model.put("clientes", clienteService.findAll());
+		return "/facturacion/listClientes";
 	}
 		
-	@RequestMapping("/inventarios/newProducto")
+	@RequestMapping("/facturacion/newCliente")
 	public String newProducto (ModelMap model) {
-		logger.debug("Alta de nuevo producto");
-		model.put("producto", new Producto());
-		return "/inventarios/productosForm";
+		logger.debug("Alta de nuevo cliente");
+		model.put("cliente", new Cliente());
+		return "/facturacion/clientesForm";
 	}
 	
-	@RequestMapping("/inventarios/modifyProducto/{id}")
+	@RequestMapping("/facturacion/modifyCliente/{id}")
 	public String modifyEmployee(ModelMap model, @PathVariable("id") Long id) {
-		Producto producto = new Producto(id);
-		producto = productoService.findOne(producto);
-		model.put("producto", producto);
-		return "/inventarios/productosForm";
+		Cliente cliente = new Cliente(id);
+		cliente = clienteService.findOne(cliente);
+		model.put("cliente", cliente);
+		return "/facturacion/clientesForm";
 	}
 	
 	
-	@RequestMapping(value = {"/inventarios/saveProducto"}, method = RequestMethod.POST)
-	public String saveEmployee(@ModelAttribute Producto producto, ModelMap model,
+	@RequestMapping(value = {"/facturacion/saveCliente"}, method = RequestMethod.POST)
+	public String saveCliente(@ModelAttribute Cliente cliente, ModelMap model,
 			final RedirectAttributes redirectAttributes) {
-		if (producto.getId() != null) {
-			productoService.update(producto);
+		if (cliente.getId() != null) {
+			clienteService.update(cliente);
 			redirectAttributes.addFlashAttribute("messageSuccess", 
 					messageSource.getMessage("messages.success.update", null, null));
 		} else {
-			productoService.save(producto);
+			clienteService.save(cliente);
 			redirectAttributes.addFlashAttribute("messageSuccess", 
 					messageSource.getMessage("messages.success.save", null, null));
 		}
-		return "redirect:/inventarios/productos";
+		return "redirect:/facturacion/clientes";
 	}
+
 }

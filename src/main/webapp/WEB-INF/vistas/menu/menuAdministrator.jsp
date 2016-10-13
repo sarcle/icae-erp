@@ -19,6 +19,7 @@
 				<c:url var="urlemployees" value="/nomina/admin/employees"/>
 				<c:url var="urlupdateinfo" value="/nomina/admin/updateInfo"/>
 				<c:url var="urlproductos" value="/inventarios/productos"/>
+				<c:url var="urlclientes" value="/facturacion/clientes"/>
 			</sec:authorize>
 			<h2>
 				<span class="text-warning">${applicationScope.appTitle}</span>
@@ -39,7 +40,7 @@
 							</p>
 							<hr>
 							<p>
-								<a href="${urlpayslips}" class="btn btn-default btn-lg" role="button">
+								<a href="${urlclientes}" class="btn btn-default btn-lg" role="button">
 									<span class="text-primary">Ventas</span>
 									<i class="fa fa-search text-muted"></i>
 								</a>

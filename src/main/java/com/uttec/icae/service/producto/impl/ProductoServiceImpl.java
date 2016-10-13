@@ -26,6 +26,8 @@ public class ProductoServiceImpl implements ProductoService, ResourceLoaderAware
 	@Autowired
 	private ProductoRepository productoRepository;
 	
+	private ResourceLoader resourceLoader;
+	
 	@Transactional(readOnly = true)
 	@Override
 	public Producto findByClave(Producto producto) {
@@ -71,5 +73,4 @@ public class ProductoServiceImpl implements ProductoService, ResourceLoaderAware
 		// TODO Auto-generated method stub
 		
 	}
-
 }
