@@ -17,4 +17,6 @@ public interface ProductoService {
 
 	Producto findOne(Producto producto);
 
+	Producto findById(Long id);
+
 }

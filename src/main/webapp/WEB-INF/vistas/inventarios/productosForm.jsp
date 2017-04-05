@@ -7,44 +7,31 @@
 <html>
 <head>
 <title>Módulo de inventarios</title>
-<script src="<c:url value="/resources/js/empleado/empleado.js"/>"></script>
-<script src="<c:url value="/resources/js/producto/producto.js"/>"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<%-- 	<script src="<c:url value="/resources/js/hola.js"/>"></script> --%>
+	<script src="<c:url value="/resources/js/producto/producto.js"/>"></script>
+<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
     <script	src="<c:url value="/resources/vendor/bootstrap-confirmation.js" />"></script>
-<script
-	src="<c:url value="/resources/jquery/jquery-1.10.2.min.js" />"></script>
-	<script
-	src="<c:url value="/resources/jquery/jquery.dataTables.min.js" />"></script>
-
-<%-- <script src="<c:url value="/resources/js/jquery/jquery.validate.js" />"></script> --%>
-<script
-	src="<c:url value="/resources/jquery/jquery.prettyLoader.js" />"></script>
-<script
-	src="<c:url value="/resources/jquery/jquery.validationEngine.js" />"></script>
-<script
-	src="<c:url value="/resources/jquery/jquery.validationEngine-es.js" />"></script>
-	
-		<script src="<c:url value="/resources/js/vendor/bootstrap.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/js/vendor/bootstrap-confirmation.js" />"></script>
-		    <!-- Bootstrap core CSS -->
+	<script	src="<c:url value="/resources/jquery/jquery-1.10.2.min.js" />"></script>
+	<script src="<c:url value="/resources/jquery/jquery.dataTables.min.js" />"></script>
+	<script src="<c:url value="/resources/jquery/jquery.prettyLoader.js" />"></script>
+    <script src="<c:url value="/resources/jquery/jquery.validationEngine.js" />"></script>
+    <script src="<c:url value="/resources/jquery/jquery.validationEngine-es.js" />"></script>
+	<script src="<c:url value="/resources/js/vendor/bootstrap.min.js" />"></script>
+	<script src="<c:url value="/resources/js/vendor/bootstrap-confirmation.js" />"></script>
+<!--  	Bootstrap core CSS  -->
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<!--     IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="/resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
+<!--     Custom styles for this template -->
     <link href="/resources/css/dashboard.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<!--     Just for debugging purposes. Don't actually copy these 2 lines! -->
+<!--     [if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif] -->
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<!--     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--     [if lt IE 9]>
+<!--       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+<!--       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> -->
+<!--     <![endif]  -->
 </head>
 <body>
 
@@ -71,7 +58,7 @@
 							<div class="form-group">
 								<label for="clave" class="control-label col-lg-4 col-md-4">*Clave: </label>
 								<div class="col-lg-7 col-md-7">
-									<form:input path="clave" cssClass="form-control input-sm validate[required]" id="clave" />
+									<form:input path="clave" cssClass="form-control input-sm validate[required, maxSize[8]]" id="clave" />
 								</div>
 							</div>
 							<div class="form-group">
@@ -96,25 +83,25 @@
 								<label for="precio" class="control-label col-lg-4 col-md-4">*Precio: </label>
 								<div class="col-lg-7 col-md-7">
 <%-- 								<fmt:formatNumber value="${concepto.valorUnitario}" type="currency" maxFractionDigits="6"/> --%>
-									<form:input path="precio" type="currency" maxFractionDigits="2" cssClass="form-control input-sm validate[required] " id="precio" />
+									<form:input path="precio" type="currency" maxFractionDigits="2" cssClass="form-control input-sm validate[required,custom[number]] " id="precio" />
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="cantMax" class="control-label col-lg-4 col-md-4">*Cantiad Máxima: </label>
 								<div class="col-lg-7 col-md-7">
-									<form:input path="cantMax" cssClass="form-control input-sm validate[required] " id="cantMax" />
+									<form:input path="cantMax" cssClass="form-control input-sm validate[required,custom[integer]] " id="cantMax" />
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="cantMin" class="control-label col-lg-4 col-md-4">*Cantidad Mínima: </label>
 								<div class="col-lg-7 col-md-7">
-									<form:input path="cantMin" cssClass="form-control input-sm validate[required] " id="cantMin" />
+									<form:input path="cantMin" cssClass="form-control input-sm validate[required,custom[integer]] " id="cantMin" />
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="noExistencias" class="control-label col-lg-4 col-md-4">*Existencia: </label>
 								<div class="col-lg-7 col-md-7">
-									<form:input path="noExistencias" cssClass="form-control input-sm validate[required] " id="noExistencias" />
+									<form:input path="noExistencias" cssClass="form-control input-sm validate[required,custom[integer]] " id="noExistencias" />
 								</div>
 							</div>
 							<hr>

@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.uttec.icae.exception.IcaeErpException;
 import com.uttec.icae.model.Empleado;
 import com.uttec.icae.model.Usuario;
 import com.uttec.icae.service.empleado.EmpleadoService;
+import com.uttec.icae.service.empleadowebservice.EmpleadoWebService;
 
 @Controller
 @SessionAttributes({ "usuario" })
@@ -26,8 +28,8 @@ public class EmpleadoController {
 	@Autowired
 	private EmpleadoService empleadoService;
 	
-//	@Autowired
-//	private EmpleadoWebService empleadoWebService;
+	@Autowired
+	private EmpleadoWebService empleadoWebService;
 	
 //	@Autowired
 //	private ReciboNominaService reciboNominaService;
@@ -62,8 +64,7 @@ public class EmpleadoController {
 			redirectAttributes.addFlashAttribute("messageSuccess", 
 					messageSource.getMessage("messages.success.updateinfo", null, null));
 			return "redirect:/nomina/menuPage";
-//		} catch (PortalNominaException ex) {
-		} catch (Exception ex) {
+		} catch (IcaeErpException ex) {
 			redirectAttributes.addFlashAttribute("messageError", ex.getMessage());
 			return "redirect:/nomina/employee/updateInfoForm";
 		}
@@ -88,18 +89,18 @@ public class EmpleadoController {
 	@RequestMapping("/resetPassword/sendPassword")
 	public String sendPassword(@ModelAttribute Empleado empleado, ModelMap model, 
 			final RedirectAttributes redirectAttributes) {
-//		empleado = empleadoService.findByRfcAndEmail(empleado);
-//		if (empleado != null) {
-//			empleadoWebService.resetPassword(empleado);
-//			//FIXME OVP Cambiar mensaje para tomarlo de archivo de propiedades
-//			redirectAttributes.addFlashAttribute("messageSuccess", "En unos momentos recibirá su nueva contraseña en el correo registrado.");
-//			return "redirect:/resetPassword/resetForm";
-//		} else {
-//			//FIXME OVP Cambiar mensaje para tomarlo de archivo de propiedades
-//			redirectAttributes.addFlashAttribute("messageError", "El usuario o el correo no se encuentra registrado en el sistema.");
-//			return "redirect:/resetPassword/resetForm";
-//		}
-		return null;
+		empleado = empleadoService.findByRfcAndEmail(empleado);
+		if (empleado != null) {
+			empleadoWebService.resetPassword(empleado);
+			//FIXME OVP Cambiar mensaje para tomarlo de archivo de propiedades
+			redirectAttributes.addFlashAttribute("messageSuccess", "En unos momentos recibirá su nueva contraseña en el correo registrado.");
+			return "redirect:/resetPassword/resetForm";
+		} else {
+			//FIXME OVP Cambiar mensaje para tomarlo de archivo de propiedades
+			redirectAttributes.addFlashAttribute("messageError", "El usuario o el correo no se encuentra registrado en el sistema.");
+			return "redirect:/resetPassword/resetForm";
+		}
+//		return null;
 	}
 	
 }

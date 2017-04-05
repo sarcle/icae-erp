@@ -44,6 +44,23 @@ Hibernate:
         id_usuario bigint not null,
         primary key (id_empleado)
     )
+        create table t_factura (
+        id_factura bigint not null auto_increment,
+        id_cliente bigint not null,
+        subtotal double ,
+        iva double,
+        total double,
+        fecha date,
+        primary key (id_factura)
+    )
+       create table t_factura_detalle (
+        id_factura bigint not null ,
+        id_producto bigint not null,
+        cantidad double,
+        precio_venta double,
+        importe double,
+        primary key (id_factura)
+    )
     create table t_producto (
         id_producto bigint not null auto_increment,
         clave varchar(255),
@@ -55,11 +72,27 @@ Hibernate:
         precio double,
         primary key (id_producto)
     )
+    create table t_empleado_nomina (
+    
+        id_empleado_nomina bigint not null auto_increment,
+        curp varchar(50),
+        tipo_nomina varchar(20),
+    	dias_pagados double,
+        nombre varchar(40),
+        apellido_paterno varchar(40),
+        apellido_materno varchar(40),
+        rfc varchar(20),
+        sueldo double,
+        primary key (id_empleado_nomina)
+        
+    )
     create table t_cliente (
         id_cliente bigint not null auto_increment,
         clave varchar(255),
         rfc varchar(20),
         nombre varchar(255),
+        apellido_paterno varchar(255),
+        apellido_materno varchar(255),
         calle varchar(255),
         colonia varchar(200),
         codigo_postal int,

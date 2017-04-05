@@ -1,13 +1,16 @@
 package com.uttec.icae.service.empleado.impl;
 
+import java.io.IOException;
 import java.util.List;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.ResourceLoaderAware;
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,12 +18,15 @@ import org.springframework.transaction.annotation.Transactional;
 import com.uttec.icae.dao.empleado.EmpleadoRepository;
 import com.uttec.icae.dao.rol.RolRepository;
 import com.uttec.icae.dao.usuario.UsuarioRepository;
+import com.uttec.icae.exception.IcaeErpException;
 import com.uttec.icae.model.Empleado;
 import com.uttec.icae.model.Rol;
 import com.uttec.icae.model.TipoRol;
 import com.uttec.icae.model.Usuario;
 import com.uttec.icae.service.empleado.EmpleadoService;
 import com.uttec.icae.service.encoder.PasswordEncoderService;
+import com.uttec.icae.service.mail.MailService;
+import com.uttec.icae.utils.IcaeErpUtils;
 
 @Service("empleadoService")
 public class EmpleadoServiceImpl implements EmpleadoService, ResourceLoaderAware {
@@ -85,6 +91,13 @@ public class EmpleadoServiceImpl implements EmpleadoService, ResourceLoaderAware
 	
 	@Transactional
 	@Override
+	public void delete(Empleado deleteEmploye) {
+		empleadoRepository.delete(deleteEmploye.getId());
+	}
+	
+	
+	@Transactional
+	@Override
 	public void updateEmail(Empleado updated) {
 		if (!updated.getEmail().isEmpty()) {
 			Empleado empleadoForUpdate = empleadoRepository.findOne(updated.getId());
@@ -100,7 +113,8 @@ public class EmpleadoServiceImpl implements EmpleadoService, ResourceLoaderAware
 	@Override
 	public List<Empleado> findByUsuarioRolId() {
 		Rol rolUsuario = rolRepository.findByRol(TipoRol.USUARIO.getName());
-		return empleadoRepository.findByUsuarioRolId(rolUsuario.getId());
+		List<Empleado> empleados = empleadoRepository.findByUsuarioRolId(rolUsuario.getId());
+		return empleados;
 	}
 
 	@Transactional
@@ -135,7 +149,7 @@ public class EmpleadoServiceImpl implements EmpleadoService, ResourceLoaderAware
 //	@Override
 //	public void resetPassword(Empleado empleado) {
 //
-//		String randomPassword = PortalNominaUtils.generateRandomPassword(8);
+//		String randomPassword = IcaeErpUtils.generateRandomPassword(8);
 //		
 //		empleado.getUsuario().setResetPassword(true);
 //		empleado.getUsuario().setPassword(passwordEncoderService.getPasswordEncoded(randomPassword));
@@ -148,37 +162,31 @@ public class EmpleadoServiceImpl implements EmpleadoService, ResourceLoaderAware
 //		Resource htmlResource = resourceLoader.getResource("classpath:/" + nameHtmlText);
 //		Resource plainTextResource = resourceLoader.getResource("classpath:/" + namePlainText);
 //		
-//		htmlPlantilla = IOUtils.toString(htmlResource.getInputStream(), PortalNominaUtils.encodingUTF8);
-//		textoPlanoPlantilla = IOUtils.toString(plainTextResource.getInputStream(), PortalNominaUtils.encodingUTF8);
+//		htmlPlantilla = IOUtils.toString(htmlResource.getInputStream(), IcaeErpUtils.encodingUTF8);
+//		textoPlanoPlantilla = IOUtils.toString(plainTextResource.getInputStream(), IcaeErpUtils.encodingUTF8);
 //		
-//		//FIXME Validar si cambiamos por freemarker
 //		htmlPlantilla = htmlPlantilla.replace("${newPassword}", randomPassword);
 //		htmlPlantilla = htmlPlantilla.replace("${company}", empleado.getEmpresa().getNombre());
 //		
 //		textoPlanoPlantilla = textoPlanoPlantilla.replace("${newPassword}", randomPassword);
 //		
-//		//FIXME OVP Cambiar por el metodo que utiliza freemarker para personalizar la nueva contraseña
-//		mailService.sendMimeMail(textoPlanoPlantilla, htmlPlantilla, subject, empleado.getEmail());
-//		} catch (PortalNominaException ex) {
-//			//FIXME OVP Cambiar mensaje para tomarlo de archivo de propiedades
+////		mailService.sendMimeMail(textoPlanoPlantilla, htmlPlantilla, subject, empleado.getEmail());
+//		} catch (IcaeErpException ex) {
 //			logger.error("Ocurrio un error al enviar el correo" + ex);
 //		} catch (IOException ex) {
-//			//FIXME OVP Cambiar mensaje para tomarlo de archivo de propiedades
 //			logger.error("Ocurrio un error al enviar el correo" + ex);
 //		} catch (Exception ex) {
-//			//FIXME OVP Cambiar mensaje para tomarlo de archivo de propiedades
 //			logger.error("Ocurrio un error al enviar el correo" + ex);
 //		}
 //	}
 	
 	@Override
-	public void setResourceLoader(ResourceLoader resourceLoader) {
-		this.resourceLoader = resourceLoader;
-	}
-
-	@Override
 	public void resetPassword(Empleado empleado) {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public void setResourceLoader(ResourceLoader resourceLoader) {
+		this.resourceLoader = resourceLoader;
 	}
 }

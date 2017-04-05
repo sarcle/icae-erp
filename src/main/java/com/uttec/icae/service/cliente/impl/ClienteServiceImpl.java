@@ -80,7 +80,9 @@ public class ClienteServiceImpl implements ClienteService, ResourceLoaderAware{
 		usuario.setUsername(cliente.getRfc());
 		usuario.setResetPassword(true);
         usuario.setRol(rol);
-		clienteRepository.save(cliente);
+		
+        long idClienteNuevo = clienteRepository.save(cliente).getId();
+        System.out.println("nuevo id de cliente: " + idClienteNuevo);
 	}
 	
 	@Transactional(readOnly = true)

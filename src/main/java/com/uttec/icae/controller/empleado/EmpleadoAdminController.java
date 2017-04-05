@@ -64,6 +64,7 @@ public class EmpleadoAdminController {
 	
 	@RequestMapping(value = {"/nomina/admin/saveEmployee"}, method = RequestMethod.POST)
 	public String saveEmployee(@ModelAttribute Empleado empleado, ModelMap model, final RedirectAttributes redirectAttributes) {
+		logger.debug("SALVANDO EMPLEADO");
 		Empleado empleadoPorRfc = empleadoService.findByRfc(empleado);
 		if (empleadoPorRfc == null){
 			Empleado empleadoPorMail = empleadoService.findByEmail(empleado);
@@ -99,6 +100,15 @@ public class EmpleadoAdminController {
 		return "/empleado/empleadoForm";
 	}
 	
+	
+	@RequestMapping("/nomina/admin/deleteEmployee/{id}")
+	public String deleteEmployee(ModelMap model, @PathVariable("id") Long id,  final RedirectAttributes redirectAttributes) {
+		Empleado empleado = new Empleado(id);
+		empleadoService.delete(empleado);
+		redirectAttributes.addFlashAttribute("messageSuccess", 	messageSource.getMessage("se elimino", null, null));
+		model.put("employees", empleadoService.findByUsuarioRolId());
+		return "/empleado/listEmployees";
+	}
 //	@RequestMapping("/nomina/admin/searchPaySlips")
 //	public String searchPaySlips(ModelMap model, @PageableDefault(size = 5) Pageable pageRequest) {
 //		model.put("recibo", new ReciboNomina());

@@ -64,7 +64,7 @@
 			<div class="text-center">
 				<p>
 					<a href="<c:url value="/facturacion/newCliente"/>" class="btn btn-primary" > <i class="fa fa-plus"></i> Agregar Cliente </a>
-					<a id="cancelar" href="<c:url value="/menuPage"/>" class="btn btn-danger">Volver <i class="fa fa-times"></i></a>
+					<a id="cancelar" href="<c:url value="/facturacion/ventas"/>" class="btn btn-danger">Volver <i class="fa fa-times"></i></a>
 				</p>
 			</div>
 			<div class="col-md-offset-1 col-md-10">

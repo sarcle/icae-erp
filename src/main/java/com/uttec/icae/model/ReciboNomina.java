@@ -15,31 +15,31 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
-@Entity
-@Table(name = "t_recibo_nomina")
+//@Entity
+//@Table(name = "t_recibo_nomina")
 public class ReciboNomina implements Serializable {
 
 	private static final long serialVersionUID = -1025206111358587961L;
 
-	@Id
-	@Column(name = "id_recibo", unique = true)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Id
+//	@Column(name = "id_recibo", unique = true)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "id_empleado")
+//	@ManyToOne(optional = false)
+//	@JoinColumn(name = "id_empleado")
 	private Empleado empleado;
 
-	@Temporal(TemporalType.DATE)
+//	@Temporal(TemporalType.DATE)
 	private Date fechaEmision;
 
-	@Temporal(TemporalType.DATE)
+//	@Temporal(TemporalType.DATE)
 	private Date fechaInicialPago;
 
-	@Temporal(TemporalType.DATE)
+//	@Temporal(TemporalType.DATE)
 	private Date fechaFinalPago;
 
-	@Temporal(TemporalType.DATE)
+//	@Temporal(TemporalType.DATE)
 	private Date fechaPago;
 
 	private Date fechaTimbrado;

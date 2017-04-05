@@ -37,6 +37,13 @@ public class ProductoServiceImpl implements ProductoService, ResourceLoaderAware
 	
 	@Transactional(readOnly = true)
 	@Override
+	public Producto findById(Long id) {
+		logger.debug("Recuperando producto por id");
+		return productoRepository.findById(id);
+	}
+	
+	@Transactional(readOnly = true)
+	@Override
 	public List<Producto> findAll() {
 		logger.debug("Recuperando todos los productos");
 		return productoRepository.findAll();

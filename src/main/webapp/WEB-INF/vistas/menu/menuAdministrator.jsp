@@ -17,9 +17,10 @@
 				<c:url var="urlpayslips" value="/nomina/admin/searchPaySlips"/>
 				<c:url var="urlupload" value="/nomina/admin/uploadPaySlipsForm"/>
 				<c:url var="urlemployees" value="/nomina/admin/employees"/>
+				<c:url var="urlempleadosnomina" value="/nomina/admin/empleadosNomina"/>
 				<c:url var="urlupdateinfo" value="/nomina/admin/updateInfo"/>
 				<c:url var="urlproductos" value="/inventarios/productos"/>
-				<c:url var="urlclientes" value="/facturacion/clientes"/>
+				<c:url var="urlventas" value="/facturacion/ventas"/>
 			</sec:authorize>
 			<h2>
 				<span class="text-warning">${applicationScope.appTitle}</span>
@@ -40,7 +41,7 @@
 							</p>
 							<hr>
 							<p>
-								<a href="${urlclientes}" class="btn btn-default btn-lg" role="button">
+								<a href="${urlventas}" class="btn btn-default btn-lg" role="button">
 									<span class="text-primary">Ventas</span>
 									<i class="fa fa-search text-muted"></i>
 								</a>
@@ -55,7 +56,7 @@
 							</p>
 							<hr>
 							<p>
-								<a href="${urlupload}" class="btn btn-default btn-lg" role="button">
+								<a href="${urlempleadosnomina}" class="btn btn-default btn-lg" role="button">
 									<span class="text-primary">Nómina</span>
 									<i class="fa fa-upload text-danger"></i>
 								</a>

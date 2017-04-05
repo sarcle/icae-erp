@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+//	alert("Cargo el alta de empleados");
 	$("#empleadoForm").validationEngine();
 	$("#usuarioForm").validationEngine();
 	$("#resetForm").validationEngine();

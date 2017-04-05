@@ -77,12 +77,12 @@
  							class="table table-hover table-striped table-condensed table-search" requestURI="/nomina"> 
  							<display:column title="Id" property="id" headerClass="text-primary"/>
  							<display:column title="Clave" property="clave" headerClass="text-primary"/>
- 							<display:column title="Descripcion" property="descripcion" headerClass="text-primary"/>
- 							<display:column title="Presentacion" property="presentacion" headerClass="text-primary"/>
+ 							<display:column title="Descripción" property="descripcion" headerClass="text-primary"/>
+ 							<display:column title="Presentación" property="presentacion" headerClass="text-primary"/>
  							<display:column title="Precio" property="precio" headerClass="text-primary"/>
  							<display:column title="Cantidad Máxima" property="cantMax" headerClass="text-primary"/>
  							<display:column title="Cantidad Mínima" property="cantMin" headerClass="text-primary"/>
- 							<display:column title="Existencia" property="noExistencias" headerClass="text-primary"/>
+ 							<display:column title="Existencia"	 property="noExistencias" headerClass="text-primary"/>
  							<display:column title="Modificar" headerClass="text-primary text-center" class="text-center">
  								<a href="<c:url value="/inventarios/modifyProducto/${producto.id}"/>" class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a>
  							</display:column>

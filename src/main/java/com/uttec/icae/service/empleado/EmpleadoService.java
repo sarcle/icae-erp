@@ -24,4 +24,6 @@ public interface EmpleadoService {
 
 	Empleado findByEmail(Empleado empleado);
 
+	void delete(Empleado deleteEmploye);
+
 }

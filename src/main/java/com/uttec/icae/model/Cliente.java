@@ -23,9 +23,13 @@ public class Cliente {
 	@Column(unique = true)
 	private String clave;
 	private String nombre;
+	@Column(name = "apellido_paterno")
+	private String apellidoPaterno;
+	@Column(name = "apellido_materno")
+	private String apellidoMaterno;
 	private String calle;
 	private String colonia;
-	private int codigoPostal;
+	private Integer codigoPostal;
 	private String municipio;
 	private String estado;
 	private String pais;
@@ -92,11 +96,11 @@ public class Cliente {
 		this.colonia = colonia;
 	}
 
-	public int getCodigoPostal() {
+	public Integer getCodigoPostal() {
 		return codigoPostal;
 	}
 
-	public void setCodigoPostal(int codigoPostal) {
+	public void setCodigoPostal(Integer codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
 
@@ -147,17 +151,35 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public String getApellidoPaterno() {
+		return apellidoPaterno;
+	}
 
-	
-	
+	public void setApellidoPaterno(String apellidoPaterno) {
+		this.apellidoPaterno = apellidoPaterno;
+	}
+
+	public String getApellidoMaterno() {
+		return apellidoMaterno;
+	}
+
+	public void setApellidoMaterno(String apellidoMaterno) {
+		this.apellidoMaterno = apellidoMaterno;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result
+				+ ((apellidoMaterno == null) ? 0 : apellidoMaterno.hashCode());
+		result = prime * result
+				+ ((apellidoPaterno == null) ? 0 : apellidoPaterno.hashCode());
 		result = prime * result + ((calle == null) ? 0 : calle.hashCode());
 		result = prime * result + ((clave == null) ? 0 : clave.hashCode());
-		result = prime * result + codigoPostal;
+		result = prime * result
+				+ ((codigoPostal == null) ? 0 : codigoPostal.hashCode());
 		result = prime * result + ((colonia == null) ? 0 : colonia.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
@@ -183,6 +205,16 @@ public class Cliente {
 		if (getClass() != obj.getClass())
 			return false;
 		Cliente other = (Cliente) obj;
+		if (apellidoMaterno == null) {
+			if (other.apellidoMaterno != null)
+				return false;
+		} else if (!apellidoMaterno.equals(other.apellidoMaterno))
+			return false;
+		if (apellidoPaterno == null) {
+			if (other.apellidoPaterno != null)
+				return false;
+		} else if (!apellidoPaterno.equals(other.apellidoPaterno))
+			return false;
 		if (calle == null) {
 			if (other.calle != null)
 				return false;
@@ -193,7 +225,10 @@ public class Cliente {
 				return false;
 		} else if (!clave.equals(other.clave))
 			return false;
-		if (codigoPostal != other.codigoPostal)
+		if (codigoPostal == null) {
+			if (other.codigoPostal != null)
+				return false;
+		} else if (!codigoPostal.equals(other.codigoPostal))
 			return false;
 		if (colonia == null) {
 			if (other.colonia != null)
@@ -250,34 +285,12 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Cliente [id=");
-		builder.append(id);
-		builder.append(", rfc=");
-		builder.append(rfc);
-		builder.append(", clave=");
-		builder.append(clave);
-		builder.append(", nombre=");
-		builder.append(nombre);
-		builder.append(", calle=");
-		builder.append(calle);
-		builder.append(", colonia=");
-		builder.append(colonia);
-		builder.append(", codigoPostal=");
-		builder.append(codigoPostal);
-		builder.append(", municipio=");
-		builder.append(municipio);
-		builder.append(", estado=");
-		builder.append(estado);
-		builder.append(", pais=");
-		builder.append(pais);
-		builder.append(", noInterior=");
-		builder.append(noInterior);
-		builder.append(", noExterior=");
-		builder.append(noExterior);
-		builder.append(", email=");
-		builder.append(email);
-		builder.append("]");
-		return builder.toString();
+		return "Cliente [id=" + id + ", rfc=" + rfc + ", clave=" + clave
+				+ ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno
+				+ ", apellidoMaterno=" + apellidoMaterno + ", calle=" + calle
+				+ ", colonia=" + colonia + ", codigoPostal=" + codigoPostal
+				+ ", municipio=" + municipio + ", estado=" + estado + ", pais="
+				+ pais + ", noInterior=" + noInterior + ", noExterior="
+				+ noExterior + ", email=" + email + "]";
 	}
 }

@@ -12,16 +12,18 @@
 <meta name="viewport" content="width=device-width">
 <title>. : ICAE - <decorator:title default="Main" /> : .
 </title>
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/font-awesome/css/font-awesome.min.css" />" />
+
+<!-- HOJA DE ESTILOS -->
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.min.css" />" />
-<!-- <link rel="stylesheet" type="text/css" -->
-<%-- 	href="<c:url value="/resources/css/bootstrap-theme.min.css" />" /> --%>
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/font-awesome/css/font-awesome.min.css" />" />
+<%-- <link rel="stylesheet" type="text/css" 	href="<c:url value="/resources/css/bootstrap-theme.min.css" />" /> --%>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/portal-nomina-style.css" />" />
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap-datatables.css" />" />
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/datepicker.css" />" />
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/validationEngine.jquery.css" />" />
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/prettyLoader.css" />" />
 
+<!-- ICONOS -->
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="icon" sizes="16x16 32x32 64x64" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="196x196" href="<c:url value="/resources/img/favicon/favicon-196.png"/>">
@@ -37,29 +39,21 @@
 <link rel="apple-touch-icon" sizes="76x76" href="<c:url value="/resources/img/favicon/favicon-76.png"/>">
 <link rel="apple-touch-icon" sizes="72x72" href="<c:url value="/resources/img/favicon/favicon-72.png"/>">
 <link rel="apple-touch-icon" href="<c:url value="/resources/img/favicon/favicon-57.png"/>">
+
 <meta name="msapplication-TileColor" content="#FFFFFF">
 <meta name="msapplication-TileImage" content="<c:url value="/resources/img/favicon/favicon-144.png"/>">
 <meta name="msapplication-config" content="<c:url value="/resources/img/favicon/browserconfig.xml"/>">
 
-<script
-	src="<c:url value="/resources/js/jquery/jquery-1.10.2.min.js" />"></script>
-<script
-	src="<c:url value="/resources/js/jquery/jquery.dataTables.min.js" />"></script>
-
+<!--  JAVA SCRIPT -->
+<script src="<c:url value="/resources/js/jquery/jquery-1.10.2.min.js" />"></script>
+<script src="<c:url value="/resources/js/jquery/jquery.dataTables.min.js" />"></script>
 <%-- <script src="<c:url value="/resources/js/jquery/jquery.validate.js" />"></script> --%>
-<script
-	src="<c:url value="/resources/js/jquery/jquery.prettyLoader.js" />"></script>
-<script
-	src="<c:url value="/resources/js/jquery/jquery.validationEngine.js" />"></script>
-<script
-	src="<c:url value="/resources/js/jquery/jquery.validationEngine-es.js" />"></script>
-
+<script src="<c:url value="/resources/js/jquery/jquery.prettyLoader.js" />"></script>
+<script src="<c:url value="/resources/js/jquery/jquery.validationEngine.js" />"></script>
+<script src="<c:url value="/resources/js/jquery/jquery.validationEngine-es.js" />"></script>
 <script src="<c:url value="/resources/js/datatable/datatable.js" />"></script>
-
-<script
-	src="<c:url value="/resources/js/datepicker/bootstrap-datepicker.js" />"></script>
-<script
-	src="<c:url value="/resources/js/datepicker/bootstrap-datepicker.es.js" />"></script>
+<script src="<c:url value="/resources/js/datepicker/bootstrap-datepicker.js" />"></script>
+<script src="<c:url value="/resources/js/datepicker/bootstrap-datepicker.es.js" />"></script>
 
 <script type="text/javascript">
 	var contextPath = "${pageContext.request.contextPath}";
@@ -164,7 +158,7 @@
 						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="<c:url value="/nomina/menuPage" />">
+					<a class="navbar-brand" href="<c:url value="/menuPage" />">
 						${applicationScope.appTitle} <i class="fa fa-users text-primary"></i>
 					</a>
 				</div>
@@ -173,7 +167,7 @@
 
 				<div class="collapse navbar-collapse">
 					<sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
-						<c:set var="urlMenu" value="/nomina/menuPage" />
+						<c:set var="urlMenu" value="/menuPage" />
 					</sec:authorize>
 					<ul class="nav navbar-nav">
 						<c:if test="${!isLoginPage}">
@@ -214,7 +208,7 @@
 				<div class="row">
 					<div class="col-md-3">
 						<div id="logoDiv" class="logo">
-							<a href="#">
+							<a href="/menuPage">
 								<c:choose>
 									<c:when test="${not empty applicationScope.logoUrl}">
 										<img id="logoImg" src='<c:out value="${applicationScope.logoUrl}"/>' alt="Logo">

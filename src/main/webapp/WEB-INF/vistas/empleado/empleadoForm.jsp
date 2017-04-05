@@ -47,6 +47,7 @@
 <head>
 <title>Módulo de Usuarios</title>
 <script src="<c:url value="/resources/js/empleado/empleado.js"/>"></script>
+<%-- <script src="<c:url value="/resources/js/hola.js"/>"></script> --%>
 </head>
 <body>
 	<div class="container main-content">
@@ -63,7 +64,7 @@
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<c:url var="saveUrl" value="/nomina/admin/saveEmployee"/>
-						<form:form id="empleadoForm" action="${saveUrl}" method="post" modelAttribute="empleado" cssClass="form-horizontal" role="form">
+						<form:form id="empleadoNominaForm" action="${saveUrl}" method="post" modelAttribute="empleado" cssClass="form-horizontal" role="form">
 							<form:hidden path="id"/>
 							<div class="form-group">
 								<label for="rfc" class="control-label col-lg-4 col-md-4">*RFC: </label>
@@ -106,7 +107,7 @@
 		  					</div>
 							<hr>
 							<p class="text-center">
-								<button id="save" type="submit" class="btn btn-primary">Guardar <i class="fa fa-floppy-o"></i></button>
+								<button id="save" type="submit" class=" btn btn-primary">Guardar <i class="fa fa-floppy-o"></i></button>
 								<a id="cancelar" href="<c:url value="/nomina/admin/employees"/>" class="btn btn-danger">Cancelar <i class="fa fa-times"></i></a>
 							</p>
 						</form:form>
